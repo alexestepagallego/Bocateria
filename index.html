@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bocatería Sur 2 | Carta</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Pacifico&display=swap"
+rel="stylesheet">
+<style>
+:root {
+--sur-orange: #d14124;
+--sur-bg: #f9f6f1;
+--sur-dark: #1a1a1a;
+--sur-text-white: #ffffff;
+--sur-detailed-bg: #ffffff;
+}
+
+    .text-sur-orange {
+        color: var(--sur-orange);
+    }
+
+    .border-sur-orange {
+        border-color: var(--sur-orange);
+    }
+
+    .bg-sur-orange {
+        background-color: var(--sur-orange);
+    }
+
+    body {
+        background-color: var(--sur-bg);
+        font-family: sans-serif;
+        color: var(--sur-dark);
+    }
+
+    /* Estilo para los títulos Serif */
+    .font-serif-sur {
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* Estilo para los nombres de categoría (cursive/script) */
+    .font-pacific-sur {
+        font-family: 'Pacifico', cursive;
+    }
+
+    .fade-in {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .no-scroll::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+</head>
+
+<body class="text-gray-900">
+
+<header class="bg-sur-bg text-sur-orange h-24 w-full sticky top-0 z-50 flex items-center shadow-md relative mx-0 px-0">
+
+<div id="header-title" class="absolute inset-0 flex justify-center items-center overflow-hidden">
+    <img id="header-logo" src="header-bocateria.png"
+        class="w-full h-full object-contain" style="max-width:100%;display:block;">
+</div>
+
+<button id="btn-atras" onclick="history.back()"
+    class="hidden absolute left-4 text-xs bg-sur-text-white/80 px-4 py-2 rounded-full border border-sur-orange text-sur-orange font-bold z-10 hover:bg-sur-orange hover:text-sur-text-white transition-colors">
+    ← VOLVER
+</button>
+</header>
+
+<main class="max-w-md mx-auto p-4">
+
+    <div id="vista-categorias" class="fade-in space-y-5 pb-20">
+        <h2 class="text-center text-4xl font-serif-sur italic my-8 text-sur-orange drop-shadow-sm">Nuestra Carta
+        </h2>
+
+        <div id="contenedor-categorias-principal" class="space-y-6"></div>
+    </div>
+
+    <div id="vista-platos" class="hidden fade-in">
+        <h3 id="titulo-actual"
+            class="text-3xl font-pacific-sur mb-4 flex items-center uppercase tracking-wider text-sur-orange italic">
+            <span class="w-12 h-[2px] bg-sur-orange mr-3"></span>
+            CATEGORÍA
+        </h3>
+        <p id="nota-categoria" class="hidden text-sm text-sur-dark/80 mb-6 text-center bg-sur-orange/10 p-3 rounded-xl border border-sur-orange/30 mx-auto leading-relaxed shadow-sm"></p>
+        <div id="grid-platos" class="grid grid-cols-2 gap-5"></div>
+    </div>
+</main>
+
+<div id="dish-detail"
+    class="fixed inset-0 z-[60] transform translate-y-full transition-transform duration-500 ease-in-out overflow-y-auto"
+    style="background-color: var(--sur-bg);">
+
+    <button onclick="closeDetail()"
+        class="absolute top-6 right-6 bg-sur-orange text-sur-text-white w-12 h-12 rounded-full shadow-2xl z-10 font-bold border-2 border-sur-text-white flex items-center justify-center text-xl active:scale-90 transition-transform hover:bg-sur-orange/90">✕</button>
+
+    <div class="flex flex-col items-center justify-center min-h-screen p-6">
+
+        <div class="relative mb-12">
+            <div
+                class="w-64 h-64 rounded-full border-4 border-sur-orange overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.5)] bg-stone-100">
+                <img id="detail-img" src="" class="w-full h-full object-cover">
+            </div>
+            <div
+                class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-sur-orange px-8 py-2 rounded-full border-2 border-sur-text-white shadow-lg">
+                <span id="detail-price" class="text-sur-text-white font-bold text-2xl tracking-tight"></span>
+            </div>
+        </div>
+
+        <div class="w-full bg-sur-detailed-bg rounded-[3rem] p-10 shadow-2xl border-t-8 border-sur-orange relative">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-2 bg-sur-orange/20 rounded-full"></div>
+
+            <h2 id="detail-title" class="text-4xl font-serif-sur text-sur-orange text-center mb-10 italic leading-tight uppercase tracking-wide">
+            </h2>
+
+            <div class="space-y-10">
+                <div class="text-center">
+                    <h4 class="text-[11px] uppercase tracking-[0.5em] text-sur-dark font-black mb-4 opacity-50">
+                        Ingredientes</h4>
+                    <p id="detail-ingredients"
+                        class="text-sur-dark/80 text-xl leading-relaxed font-medium italic px-6"></p>
+                </div>
+
+                <div class="text-center pt-6 border-t border-stone-100">
+                    <h4 class="text-[11px] uppercase tracking-[0.5em] text-sur-dark font-black mb-5 opacity-50">
+                        Alérgenos</h4>
+                    <div id="detail-alergenos" class="flex justify-center gap-6 mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeDetail()"
+                class="mt-14 w-full bg-sur-orange text-sur-text-white py-5 rounded-3xl font-bold shadow-lg border-2 border-sur-text-white active:scale-95 transition-transform uppercase tracking-[0.25em] text-sm hover:bg-sur-orange/90">
+                Regresar a la carta
+            </button>
+        </div>
+
+        <p class="mt-10 text-sur-orange/30 text-[11px] uppercase tracking-[0.6em] font-serif-sur italic">Bocatería Sur 2</p>
+    </div>
+</div>
+
+<script>
+    const categorias = [
+        { id: 'Camperos', foto: 'imagenes/camperos.jpeg' },
+        { id: 'Hamburguesas', foto: 'imagenes/hamburguesas.jpeg' }
+    ];
+
+     const platos = [
+        { id: 1, categoria: 'Camperos', nombre: 'Poble', precio: '6,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 2, categoria: 'Camperos', nombre: 'Noble', precio: '7,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 3, categoria: 'Camperos', nombre: 'Serranito', precio: '7,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 4, categoria: 'Camperos', nombre: 'Brutote', precio: '7,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 5, categoria: 'Camperos', nombre: 'Aldeano', precio: '6,50€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 6, categoria: 'Camperos', nombre: 'Del Campo', precio: '7,50€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 7, categoria: 'Camperos', nombre: 'Barrilete', precio: '7,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 8, categoria: 'Camperos', nombre: 'Bartolo', precio: '5,50€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 9, categoria: 'Camperos', nombre: 'Bocata Sur', precio: '8,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 10, categoria: 'Camperos', nombre: 'Señorito', precio: '8,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 11, categoria: 'Camperos', nombre: 'Roqueto', precio: '7,50€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 12, categoria: 'Camperos', nombre: 'Hannibal', precio: '7,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 13, categoria: 'Camperos', nombre: 'Pipido', precio: '8,00€', foto: 'imagenes/camperos.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 14, categoria: 'Hamburguesas', nombre: 'Simple', precio: '5,50€', foto: 'imagenes/hamburguesas.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 15, categoria: 'Hamburguesas', nombre: 'Completa', precio: '6,50€', foto: 'imagenes/hamburguesas.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 16, categoria: 'Hamburguesas', nombre: 'Hamburguesa Sur', precio: '8,50€', foto: 'imagenes/hamburguesas.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 17, categoria: 'Hamburguesas', nombre: 'Hamburguesa Roquefort', precio: '8,50€', foto: 'imagenes/hamburguesas.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 18, categoria: 'Hamburguesas', nombre: 'Hamburguesa Bellota', precio: '7,50€', foto: 'imagenes/hamburguesas.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 19, categoria: 'Hamburguesas', nombre: 'Hamburguesa Golosa', precio: '8,50€', foto: 'imagenes/hamburguesas.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 20, categoria: 'Hamburguesas', nombre: 'Hamburguesa Verona', precio: '8,50€', foto: 'imagenes/hamburguesas.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+        { id: 21, categoria: 'Hamburguesas', nombre: 'Hamburguesa Buffalo', precio: '-', foto: 'imagenes/hamburguesas.jpeg', ingredientes: 'Ingredientes por detallar...', alergenos: [] }
+    ];
+
+    
+
+function renderCategorias() {
+const container = document.getElementById('contenedor-categorias-principal');
+container.innerHTML = categorias.map(cat => `
+    <div onclick="filtrar('${cat.id}')" class="relative h-44 rounded-3xl overflow-hidden shadow-2xl border border-white/20 active:scale-95 transition-transform cursor-pointer">
+        <img src="${cat.foto}" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-70 bg-stone-700" alt="${cat.id}">
+        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <span class="text-sur-text-white text-5xl font-pacific-sur italic tracking-[0.1em]">${cat.id}</span>
+        </div>
+    </div>
+`).join('');
+}
+
+ function filtrar(cat) {
+const filtrados = platos.filter(p => p.categoria === cat);
+
+document.getElementById('vista-categorias').classList.add('hidden');
+document.getElementById('vista-platos').classList.remove('hidden');
+document.getElementById('btn-atras').classList.remove('hidden');
+document.getElementById('header-title').classList.add('hidden');
+document.getElementById('titulo-actual').innerText = cat;
+
+const notaExt = document.getElementById('nota-categoria');
+if (cat === 'Hamburguesas') {
+    notaExt.innerHTML = '✨ Todas las hamburguesas van en <strong>Pan Brioche</strong>. <br> Añade patatas por <strong>+2€</strong>.';
+    notaExt.classList.remove('hidden');
+} else {
+    notaExt.classList.add('hidden');
+    notaExt.innerHTML = '';
+}
+
+const grid = document.getElementById('grid-platos');
+grid.innerHTML = '';
+
+if (filtrados.length === 0) {
+    grid.innerHTML = '<p class="col-span-2 text-center text-sur-dark/80 py-12 italic">¡Próximamente!</p>';
+} else {
+    filtrados.forEach(plato => {
+        grid.innerHTML += `
+            <div onclick="openDetail(${plato.id})" class="bg-sur-text-white rounded-[2rem] shadow-xl overflow-hidden active:scale-95 transition-transform duration-200 text-center border-b-4 border-sur-orange/10 hover:border-sur-orange/20">
+                <img src="${plato.foto}" loading="lazy" class="w-full h-40 object-cover bg-stone-100">
+                <div class="p-5">
+                    <h4 class="font-serif-sur font-bold text-lg h-12 leading-tight flex items-center justify-center text-sur-dark">${plato.nombre}</h4>
+                    <p class="text-sur-orange font-bold text-xl mt-2">${plato.precio}</p>
+                </div>
+            </div>`;
+    });
+}
+history.pushState({ view: 'platos' }, "");
+window.scrollTo(0, 0);
+}
+function mostrarCategorias() {
+document.getElementById('vista-categorias').classList.remove('hidden');
+document.getElementById('vista-platos').classList.add('hidden');
+document.getElementById('btn-atras').classList.add('hidden');
+document.getElementById('header-title').classList.remove('hidden');
+window.scrollTo(0, 0);
+}
+
+function openDetail(id) {
+const p = platos.find(x => x.id === id);
+if (!p) return;
+document.getElementById('detail-img').src = p.foto;
+document.getElementById('detail-title').innerText = p.nombre;
+document.getElementById('detail-price').innerText = p.precio;
+
+const divIngredientes = document.getElementById('detail-ingredients');
+const divAlergenos = document.getElementById('detail-alergenos');
+
+divIngredientes.innerText = p.ingredientes;
+divAlergenos.innerHTML = p.alergenos ? p.alergenos.map(a => `
+    <div class="w-14 h-14 rounded-full border border-stone-100 flex items-center justify-center bg-stone-50 text-2xl shadow-inner">
+        ${a}
+    </div>`).join('') : '';
+
+document.getElementById('dish-detail').classList.remove('translate-y-full');
+document.body.style.overflow = 'hidden';
+history.pushState({ view: 'detalle' }, "");
+}
+
+    function closeDetail() {
+        document.getElementById('dish-detail').classList.add('translate-y-full');
+        document.body.style.overflow = 'auto';
+    }
+
+    window.onload = renderCategorias;
+
+
+    window.onpopstate = function(event) {
+const detailOpen = !document.getElementById('dish-detail').classList.contains('translate-y-full');
+const platosOpen = !document.getElementById('vista-platos').classList.contains('hidden');
+
+if (detailOpen) {
+    // Si el detalle está abierto, lo cerramos
+    document.getElementById('dish-detail').classList.add('translate-y-full');
+    document.body.style.overflow = 'auto';
+} 
+else if (platosOpen) {
+    // Si estamos viendo la lista de platos, volvemos a categorías
+    document.getElementById('vista-categorias').classList.remove('hidden');
+    document.getElementById('vista-platos').classList.add('hidden');
+    document.getElementById('btn-atras').classList.add('hidden');
+    document.getElementById('header-title').classList.remove('hidden');
+}
+};
+
+</script>
+</body>
+
+</html>
