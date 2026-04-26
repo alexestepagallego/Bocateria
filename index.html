@@ -3,222 +3,233 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bocatería Sur 2 | Carta</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Pacifico&display=swap"
-rel="stylesheet">
-<style>
-:root {
---sur-orange: #d14124;
---sur-bg: #f9f6f1;
---sur-dark: #1a1a1a;
---sur-text-white: #ffffff;
---sur-detailed-bg: #ffffff;
-}
-
-    .text-sur-orange {
-        color: var(--sur-orange);
-    }
-
-    .border-sur-orange {
-        border-color: var(--sur-orange);
-    }
-
-    .bg-sur-orange {
-        background-color: var(--sur-orange);
-    }
-
-    body {
-        background-color: var(--sur-bg);
-        font-family: sans-serif;
-        color: var(--sur-dark);
-    }
-
-    /* Estilo para los títulos Serif */
-    .font-serif-sur {
-        font-family: 'Playfair Display', serif;
-    }
-
-    /* Estilo para los nombres de categoría (cursive/script) */
-    .font-pacific-sur {
-        font-family: 'Pacifico', cursive;
-    }
-
-    .fade-in {
-        animation: fadeIn 0.3s ease-out forwards;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bocatería Sur 2 | Carta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --sur-orange: #d14124;
+            --sur-bg: #f9f6f1;
+            --sur-dark: #1a1a1a;
+            --sur-text-white: #ffffff;
+            --sur-detailed-bg: #ffffff;
         }
 
-        to {
-            opacity: 1;
+        .text-sur-orange {
+            color: var(--sur-orange);
         }
-    }
 
-    .no-scroll::-webkit-scrollbar {
-        display: none;
-    }
-</style>
+        .border-sur-orange {
+            border-color: var(--sur-orange);
+        }
+
+        .bg-sur-orange {
+            background-color: var(--sur-orange);
+        }
+
+        body {
+            background-color: var(--sur-bg);
+            font-family: sans-serif;
+            color: var(--sur-dark);
+        }
+
+        /* Estilo para los títulos Serif */
+        .font-serif-sur {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilo para los nombres de categoría (cursive/script) */
+        .font-pacific-sur {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .no-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="text-gray-900">
 
-<header class="bg-white text-sur-orange h-24 w-full sticky top-0 z-50 flex items-center relative mx-0 px-0">
+    <header class="bg-white text-sur-orange h-24 w-full sticky top-0 z-50 flex items-center relative mx-0 px-0">
 
-<div id="header-title" class="absolute inset-0 flex justify-center items-center">
-    <img id="header-logo" src="header-bocateria.png"
-        class="w-full h-full object-contain scale-100" style="max-width:100%;display:block;">
-</div>
-
-<button id="btn-atras" onclick="history.back()"
-    class="hidden absolute left-4 text-xs bg-sur-text-white/80 px-4 py-2 rounded-full border border-sur-orange text-sur-orange font-bold z-10 hover:bg-sur-orange hover:text-sur-text-white transition-colors">
-    ← VOLVER
-</button>
-</header>
-
-<main class="max-w-md mx-auto p-4">
-
-    <div id="vista-categorias" class="fade-in space-y-5 pb-20">
-        <h2 class="text-center text-4xl font-serif-sur italic my-8 text-sur-orange drop-shadow-sm">Nuestra Carta
-        </h2>
-
-        <div id="contenedor-categorias-principal" class="space-y-6"></div>
-    </div>
-
-    <div id="vista-platos" class="hidden fade-in">
-        <h3 id="titulo-actual"
-            class="text-3xl font-pacific-sur mb-4 flex items-center uppercase tracking-wider text-sur-orange italic">
-            <span class="w-12 h-[2px] bg-sur-orange mr-3"></span>
-            CATEGORÍA
-        </h3>
-        <p id="nota-categoria" class="hidden text-sm text-sur-dark/80 mb-6 text-center bg-sur-orange/10 p-3 rounded-xl border border-sur-orange/30 mx-auto leading-relaxed shadow-sm"></p>
-        <div id="grid-platos" class="grid grid-cols-2 gap-5"></div>
-    </div>
-</main>
-
-<div id="dish-detail"
-    class="fixed inset-0 z-[60] transform translate-y-full transition-transform duration-500 ease-in-out overflow-y-auto"
-    style="background-color: var(--sur-bg);">
-
-    <button onclick="closeDetail()"
-        class="absolute top-6 right-6 bg-sur-orange text-sur-text-white w-12 h-12 rounded-full shadow-2xl z-10 font-bold border-2 border-sur-text-white flex items-center justify-center text-xl active:scale-90 transition-transform hover:bg-sur-orange/90">✕</button>
-
-    <div class="flex flex-col items-center justify-center min-h-screen p-6">
-
-        <div class="relative mb-12">
-            <div
-                class="w-64 h-64 rounded-full border-4 border-sur-orange overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.5)] bg-stone-100">
-                <img id="detail-img" src="" class="w-full h-full object-cover">
-            </div>
-            <div
-                class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-sur-orange px-8 py-2 rounded-full border-2 border-sur-text-white shadow-lg">
-                <span id="detail-price" class="text-sur-text-white font-bold text-2xl tracking-tight"></span>
-            </div>
+        <div id="header-title" class="absolute inset-0 flex justify-center items-center">
+            <img id="header-logo" src="header-bocateria.png" class="w-full h-full object-contain scale-100"
+                style="max-width:100%;display:block;">
         </div>
 
-        <div class="w-full bg-sur-detailed-bg rounded-[3rem] p-10 shadow-2xl border-t-8 border-sur-orange relative">
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-2 bg-sur-orange/20 rounded-full"></div>
+        <button id="btn-atras" onclick="history.back()"
+            class="hidden absolute left-4 text-xs bg-sur-text-white/80 px-4 py-2 rounded-full border border-sur-orange text-sur-orange font-bold z-10 hover:bg-sur-orange hover:text-sur-text-white transition-colors">
+            ← VOLVER
+        </button>
+    </header>
 
-            <h2 id="detail-title" class="text-4xl font-serif-sur text-sur-orange text-center mb-10 italic leading-tight uppercase tracking-wide">
+    <main class="max-w-md mx-auto p-4">
+
+        <div id="vista-categorias" class="fade-in space-y-5 pb-20">
+            <h2 class="text-center text-4xl font-serif-sur italic my-8 text-sur-orange drop-shadow-sm">Nuestra Carta
             </h2>
 
-            <div class="space-y-10">
-                <div class="text-center">
-                    <h4 class="text-[11px] uppercase tracking-[0.5em] text-sur-dark font-black mb-4 opacity-50">
-                        Ingredientes</h4>
-                    <p id="detail-ingredients"
-                        class="text-sur-dark/80 text-xl leading-relaxed font-medium italic px-6"></p>
-                </div>
+            <div id="contenedor-categorias-principal" class="space-y-6"></div>
+        </div>
 
-                <div class="text-center pt-6 border-t border-stone-100">
-                    <h4 class="text-[11px] uppercase tracking-[0.5em] text-sur-dark font-black mb-5 opacity-50">
-                        Alérgenos</h4>
-                    <div id="detail-alergenos" class="flex justify-center gap-6 mt-3">
-                    </div>
+        <div id="vista-platos" class="hidden fade-in">
+            <h3 id="titulo-actual"
+                class="text-3xl font-pacific-sur mb-4 flex items-center uppercase tracking-wider text-sur-orange italic">
+                <span class="w-12 h-[2px] bg-sur-orange mr-3"></span>
+                CATEGORÍA
+            </h3>
+            <p id="nota-categoria"
+                class="hidden text-sm text-sur-dark/80 mb-6 text-center bg-sur-orange/10 p-3 rounded-xl border border-sur-orange/30 mx-auto leading-relaxed shadow-sm">
+            </p>
+            <div id="grid-platos" class="grid grid-cols-2 gap-5"></div>
+        </div>
+    </main>
+
+    <div id="dish-detail"
+        class="fixed inset-0 z-[60] transform translate-y-full transition-transform duration-500 ease-in-out overflow-y-auto"
+        style="background-color: var(--sur-bg);">
+
+        <button onclick="closeDetail()"
+            class="absolute top-6 right-6 bg-sur-orange text-sur-text-white w-12 h-12 rounded-full shadow-2xl z-10 font-bold border-2 border-sur-text-white flex items-center justify-center text-xl active:scale-90 transition-transform hover:bg-sur-orange/90">✕</button>
+
+        <div class="flex flex-col items-center justify-center min-h-screen p-6">
+
+            <div class="relative mb-12">
+                <div
+                    class="w-64 h-64 rounded-full border-4 border-sur-orange overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.5)] bg-stone-100">
+                    <img id="detail-img" src="" class="w-full h-full object-cover">
+                </div>
+                <div
+                    class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-sur-orange px-8 py-2 rounded-full border-2 border-sur-text-white shadow-lg">
+                    <span id="detail-price" class="text-sur-text-white font-bold text-2xl tracking-tight"></span>
                 </div>
             </div>
 
-            <button onclick="closeDetail()"
-                class="mt-14 w-full bg-sur-orange text-sur-text-white py-5 rounded-3xl font-bold shadow-lg border-2 border-sur-text-white active:scale-95 transition-transform uppercase tracking-[0.25em] text-sm hover:bg-sur-orange/90">
-                Regresar a la carta
-            </button>
+            <div class="w-full bg-sur-detailed-bg rounded-[3rem] p-10 shadow-2xl border-t-8 border-sur-orange relative">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-2 bg-sur-orange/20 rounded-full"></div>
+
+                <h2 id="detail-title"
+                    class="text-4xl font-serif-sur text-sur-orange text-center mb-10 italic leading-tight uppercase tracking-wide">
+                </h2>
+
+                <div class="space-y-10">
+                    <div class="text-center">
+                        <h4 class="text-[11px] uppercase tracking-[0.5em] text-sur-dark font-black mb-4 opacity-50">
+                            Ingredientes</h4>
+                        <p id="detail-ingredients"
+                            class="text-sur-dark/80 text-xl leading-relaxed font-medium italic px-6"></p>
+                    </div>
+
+                    <div class="text-center pt-6 border-t border-stone-100">
+                        <h4 class="text-[11px] uppercase tracking-[0.5em] text-sur-dark font-black mb-5 opacity-50">
+                            Alérgenos</h4>
+                        <div id="detail-alergenos" class="flex justify-center gap-6 mt-3">
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="closeDetail()"
+                    class="mt-14 w-full bg-sur-orange text-sur-text-white py-5 rounded-3xl font-bold shadow-lg border-2 border-sur-text-white active:scale-95 transition-transform uppercase tracking-[0.25em] text-sm hover:bg-sur-orange/90">
+                    Regresar a la carta
+                </button>
+            </div>
+
+            <p class="mt-10 text-sur-orange/30 text-[11px] uppercase tracking-[0.6em] font-serif-sur italic">Bocatería
+                Sur 2</p>
         </div>
-
-        <p class="mt-10 text-sur-orange/30 text-[11px] uppercase tracking-[0.6em] font-serif-sur italic">Bocatería Sur 2</p>
     </div>
-</div>
 
-<script>
-    const categorias = [
-        { id: 'Camperos', foto: 'imagenes/camperos.webp' },
-        { id: 'Hamburguesas', foto: 'imagenes/hamburguesas.webp' },
-        { id: 'Patatas', foto: 'imagenes/patatas.webp' },
-        { id: 'Compartir', foto: 'imagenes/compartir.webp' },
-        { id: 'Los peques', foto: 'imagenes/peques.webp' },
-        { id: 'Pizzas', foto: 'imagenes/pizzas.webp' }
-    ];
+    <script>
+        const categorias = [
+            { id: 'Camperos', foto: 'imagenes/camperos.webp' },
+            { id: 'Hamburguesas', foto: 'imagenes/hamburguesas.webp' },
+            { id: 'Patatas', foto: 'imagenes/patatas.webp' },
+            { id: 'Compartir', foto: 'imagenes/compartir.webp' },
+            { id: 'Los peques', foto: 'imagenes/peques.webp' },
+            { id: 'Pizzas', foto: 'imagenes/pizzas.webp' }
+        ];
 
-     const platos = [
-        { id: 1, categoria: 'Camperos', nombre: 'Poble', precio: '6,00€', foto: 'imagenes/camperos/poble.webp', ingredientes: 'Lechuga, Tomate y Pollo o Lomo.', alergenos: [] },
-        { id: 2, categoria: 'Camperos', nombre: 'Noble', precio: '7,00€', foto: 'imagenes/camperos/noble.webp', ingredientes: 'Lechuga, Tomate, Bacon, Queso, Pollo o Lomo.', alergenos: [] },
-        { id: 3, categoria: 'Camperos', nombre: 'Serranito', precio: '7,00€', foto: 'imagenes/camperos/serranito.webp', ingredientes: 'Lechuga, Tomate, Jamón, Pimiento, Pollo o Lomo.', alergenos: [] },
-        { id: 4, categoria: 'Camperos', nombre: 'Brutote', precio: '7,00€', foto: 'imagenes/camperos/brutote.webp', ingredientes: 'Lechuga, Tomate, Bacon, Queso, Huevo, Pollo o Lomo.', alergenos: [] },
-        { id: 5, categoria: 'Camperos', nombre: 'Aldeano', precio: '6,50€', foto: 'imagenes/camperos/aldeano.webp', ingredientes: 'Lechuga, Tomate y Tortilla de Patatas.', alergenos: [] },
-        { id: 6, categoria: 'Camperos', nombre: 'Del Campo', precio: '7,50€', foto: 'imagenes/camperos/del-campo.webp', ingredientes: 'Lechuga, Tomate, Pimiento, Tortilla y Pollo o Lomo.', alergenos: [] },
-        { id: 7, categoria: 'Camperos', nombre: 'Barrilete', precio: '7,00€', foto: 'imagenes/camperos/barrilete.webp', ingredientes: 'Lechuga, Tomate, Tortilla de Patatas y Bacon.', alergenos: [] },
-        { id: 8, categoria: 'Camperos', nombre: 'Bartolo', precio: '5,50€', foto: 'imagenes/camperos/bartolo.webp', ingredientes: 'Lechuga, Tomate, Tortilla de Patatas y Lomo Adobado.', alergenos: [] },
-        { id: 9, categoria: 'Camperos', nombre: 'Bocata Sur', precio: '8,00€', foto: 'imagenes/camperos/bocata-sur.webp', ingredientes: 'Lechuga, Tomate, Jamón, Pimiento, Huevo, Bacon, Queso y Pollo o Lomo.', alergenos: [] },
-        { id: 10, categoria: 'Camperos', nombre: 'Señorito', precio: '8,00€', foto: 'imagenes/camperos/senorito.webp', ingredientes: 'Lechuga, Tomate, Solomillo de Cerdo y Jamón.', alergenos: [] },
-        { id: 11, categoria: 'Camperos', nombre: 'Roqueto', precio: '7,50€', foto: 'imagenes/camperos/roqueto.webp', ingredientes: 'Lechuga, Tomate, Solomillo de Cerdo y Crema Roquefort.', alergenos: [] },
-        { id: 12, categoria: 'Camperos', nombre: 'Hannibal', precio: '7,00€', foto: 'imagenes/camperos/hannibal.webp', ingredientes: 'Lechuga, Tomate, Pollo Crujiente y Salsa de la Casa.', alergenos: [] },
-        { id: 13, categoria: 'Camperos', nombre: 'Pipido', precio: '8,00€', foto: 'imagenes/camperos/pipido.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-        { id: 14, categoria: 'Hamburguesas', nombre: 'Simple', precio: '5,50€', foto: 'imagenes/hamburguesas/simple.webp', ingredientes: 'Lechuga, Tomate y Hamburguesa.', alergenos: [] },
-        { id: 15, categoria: 'Hamburguesas', nombre: 'Completa', precio: '6,50€', foto: 'imagenes/hamburguesas/completa.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa, Bacon, Queso y Huevo.', alergenos: [] },
-        { id: 16, categoria: 'Hamburguesas', nombre: 'Hamburguesa Sur', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-sur.webp', ingredientes: 'Lechuga, Tomate, Doble Hamburguesa, Bacon, Huevo y Queso.', alergenos: [] },
-        { id: 17, categoria: 'Hamburguesas', nombre: 'Hamburguesa Roquefort', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-roquefort.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Cebolla Caramelizada y Crema Roquefort.', alergenos: [] },
-        { id: 18, categoria: 'Hamburguesas', nombre: 'Hamburguesa Bellota', precio: '7,50€', foto: 'imagenes/hamburguesas/hamburguesa-bellota.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Jamón Serrano, Pimiento, Huevo y Alioli.', alergenos: [] },
-        { id: 19, categoria: 'Hamburguesas', nombre: 'Hamburguesa Golosa', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-golosa.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Confitura de Pimientos, Queso y Salsa de la Casa.', alergenos: [] },
-        { id: 20, categoria: 'Hamburguesas', nombre: 'Hamburguesa Verona', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-verona.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Doritos, Queso y Salsa Ranchera.', alergenos: [] },
-        { id: 21, categoria: 'Hamburguesas', nombre: 'Hamburguesa Buffalo', precio: '-', foto: 'imagenes/hamburguesas/hamburguesa-buffalo.webp', ingredientes: 'Lechuga, Tomate, Doble de Carne, Queso, Cebolla Frita, Bacon, Salsa Cheddar y Barbacoa.', alergenos: [] },
-        { id: 22, categoria: 'Patatas', nombre: 'Patatas Fritas', precio: '3,00€', foto: 'imagenes/patatas/patatas-fritas.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-        { id: 23, categoria: 'Patatas', nombre: 'Patatas Rancheras', precio: '6,00€', foto: 'imagenes/patatas/patatas-rancheras.webp', ingredientes: 'Patatas fritas, ternera, bacon y salsa ranchera', alergenos: [] },
-        { id: 24, categoria: 'Patatas', nombre: 'Patatas de la Casa', precio: '6,00€', foto: 'imagenes/patatas/patatas-de-la-casa.webp', ingredientes: 'Patatas deluxe, mozzarella y salsa de la casa', alergenos: [] },
-        { id: 25, categoria: 'Patatas', nombre: 'Patatas Roquefort', precio: '6,00€', foto: 'imagenes/patatas/patatas-roquefort.webp', ingredientes: 'Patatas fritas, bacon y crema roquefort', alergenos: [] },
-        { id: 26, categoria: 'Patatas', nombre: 'Patatas Serranas', precio: '6,00€', foto: 'imagenes/patatas/patatas-serranas.webp', ingredientes: 'Patatas fritas, jamón, pimiento, huevo y alioli', alergenos: [] },
-        { id: 27, categoria: 'Patatas', nombre: 'Patatas Cheddar', precio: '5,50€', foto: 'imagenes/patatas/patatas-cheddar.webp', ingredientes: 'Patatas fritas, bacon y salsa cheddar', alergenos: [] },
-        { id: 28, categoria: 'Patatas', nombre: 'Patatas Kebab', precio: '6,00€', foto: 'imagenes/patatas/patatas-kebab.webp', ingredientes: 'Patatas fritas, carne kebab y salsa kebab', alergenos: [] },
-        { id: 29, categoria: 'Compartir', nombre: 'Cheddar Bites', precio: '7,00€', foto: 'imagenes/compartir/cheddar-bites.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-        { id: 30, categoria: 'Compartir', nombre: 'Solomillito Kentucky', precio: '7,00€', foto: 'imagenes/compartir/solomillito-kentucky.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-        { id: 31, categoria: 'Compartir', nombre: 'Nachos', precio: '7,00€', foto: 'imagenes/compartir/nachos.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-        { id: 32, categoria: 'Compartir', nombre: 'Alitas de Pollo', precio: '7,00€', foto: 'imagenes/compartir/alitas-de-pollo.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-        { id: 33, categoria: 'Pizzas', nombre: 'Margarita', precio: '6,50€', foto: 'imagenes/pizzas/margarita.webp', ingredientes: 'Tomate, mozzarella y orégano', alergenos: [] },
-        { id: 34, categoria: 'Pizzas', nombre: 'York', precio: '7,50€', foto: 'imagenes/pizzas/york.webp', ingredientes: 'Tomate, mozzarella, york y orégano', alergenos: [] },
-        { id: 35, categoria: 'Pizzas', nombre: 'Cuatro Quesos', precio: '8,00€', foto: 'imagenes/pizzas/cuatro-quesos.webp', ingredientes: 'Tomate, mozzarella, 4 quesos y orégano', alergenos: [] },
-        { id: 36, categoria: 'Pizzas', nombre: 'Atún', precio: '8,00€', foto: 'imagenes/pizzas/atun.webp', ingredientes: 'Tomate, mozzarella, atún y orégano', alergenos: [] },
-        { id: 37, categoria: 'Pizzas', nombre: 'Barbacoa', precio: '8,00€', foto: 'imagenes/pizzas/barbacoa.webp', ingredientes: 'Tomate, mozzarella, bacon, cebolla, carne, barbacoa y orégano', alergenos: [] },
-        { id: 38, categoria: 'Pizzas', nombre: 'Marinera', precio: '9,00€', foto: 'imagenes/pizzas/marinera.webp', ingredientes: 'Tomate, mozzarella, frutos del mar y orégano', alergenos: [] },
-        { id: 39, categoria: 'Pizzas', nombre: 'Gaucha', precio: '8,00€', foto: 'imagenes/pizzas/gaucha.webp', ingredientes: 'Tomate, mozzarella, ternera, bacon, gaucha y orégano', alergenos: [] },
-        { id: 40, categoria: 'Pizzas', nombre: 'Cordobesa', precio: '9,00€', foto: 'imagenes/pizzas/cordobesa.webp', ingredientes: 'Tomate, mozzarella, huevo, jamón, pimiento, tomate natural y orégano', alergenos: [] },
-        { id: 41, categoria: 'Pizzas', nombre: 'Kebab', precio: '8,00€', foto: 'imagenes/pizzas/kebab.webp', ingredientes: 'Tomate, mozzarella, carne kebab, salsa kebab y orégano', alergenos: [] },
-        { id: 42, categoria: 'Pizzas', nombre: 'La Meca', precio: '9,00€', foto: 'imagenes/pizzas/la-meca.webp', ingredientes: 'Philadelphia, mozzarella, bacon, queso de cabra, dátiles, pollo y orégano', alergenos: [] },
-        { id: 43, categoria: 'Pizzas', nombre: 'Caprichosa', precio: '8,00€', foto: 'imagenes/pizzas/caprichosa.webp', ingredientes: 'Tomate, mozzarella, champiñones, york y orégano', alergenos: [] },
-        { id: 44, categoria: 'Pizzas', nombre: 'Misteriosa', precio: '8,00€', foto: 'imagenes/pizzas/misteriosa.webp', ingredientes: 'Philadelphia, mozzarella, york, champiñones, bacon, cebolla y orégano', alergenos: [] },
-        { id: 45, categoria: 'Pizzas', nombre: 'Cargadita', precio: '8,00€', foto: 'imagenes/pizzas/cargadita.webp', ingredientes: 'Tomate, mozzarella, salchichas, bacon, pollo, york, cheddar y orégano', alergenos: [] },
-        { id: 46, categoria: 'Pizzas', nombre: 'Pizza Sur', precio: '9,00€', foto: 'imagenes/pizzas/pizza-sur.webp', ingredientes: 'Philadelphia, mozzarella, york, pollo, bacon, cebolla, cheddar y orégano', alergenos: [] },
-        { id: 47, categoria: 'Los peques', nombre: 'Nuggets y Patatas', precio: '6,00€', foto: 'imagenes/peques/nuggets-y-patatas.webp', ingredientes: 'Plato con nuggets y patatas', alergenos: [] },
-        { id: 48, categoria: 'Los peques', nombre: 'Mini Sur', precio: '6,50€', foto: 'imagenes/peques/mini-sur.webp', ingredientes: 'Incluye: Nuggets, hamburguesa o perrito + patatas, bebida, postre y dulce', alergenos: [] }
-    ];
+        const platos = [
+            // Nuevos platos añadidos
+            { id: 49, categoria: 'Patatas', nombre: 'Patatas Cortijeras', precio: 'x', foto: '', ingredientes: 'Huevo, chorizo, pimientos y mahonesa', alergenos: [] },
+            { id: 50, categoria: 'Pizzas', nombre: 'Peperoni', precio: 'x', foto: '', ingredientes: 'Tomate, queso y salchichón picante', alergenos: [] },
+            { id: 51, categoria: 'Pizzas', nombre: 'Carbonara', precio: 'x', foto: '', ingredientes: 'Salsa carbonara, mozarella, bacon, pollo, York y cebolla', alergenos: [] },
+            { id: 52, categoria: 'Camperos', nombre: 'Pipiolo', precio: 'x', foto: '', ingredientes: 'Pollo frito, bacon, queso y mahonesa ahumada', alergenos: [] },
+            { id: 53, categoria: 'Camperos', nombre: 'Arcano', precio: 'x', foto: '', ingredientes: 'Secreto IBÉRICO, pimientos y mojo picón', alergenos: [] },
+            { id: 1, categoria: 'Camperos', nombre: 'Poble', precio: '6,00€', foto: 'imagenes/camperos/poble.webp', ingredientes: 'Lechuga, Tomate y Pollo o Lomo.', alergenos: [] },
+            { id: 2, categoria: 'Camperos', nombre: 'Noble', precio: '7,00€', foto: 'imagenes/camperos/noble.webp', ingredientes: 'Lechuga, Tomate, Bacon, Queso, Pollo o Lomo.', alergenos: [] },
+            { id: 3, categoria: 'Camperos', nombre: 'Serranito', precio: '7,00€', foto: 'imagenes/camperos/serranito.webp', ingredientes: 'Lechuga, Tomate, Jamón, Pimiento, Pollo o Lomo.', alergenos: [] },
+            { id: 4, categoria: 'Camperos', nombre: 'Brutote', precio: '7,00€', foto: 'imagenes/camperos/brutote.webp', ingredientes: 'Lechuga, Tomate, Bacon, Queso, Huevo, Pollo o Lomo.', alergenos: [] },
+            { id: 5, categoria: 'Camperos', nombre: 'Aldeano', precio: '6,50€', foto: 'imagenes/camperos/aldeano.webp', ingredientes: 'Lechuga, Tomate y Tortilla de Patatas.', alergenos: [] },
+            { id: 6, categoria: 'Camperos', nombre: 'Del Campo', precio: '7,50€', foto: 'imagenes/camperos/del-campo.webp', ingredientes: 'Lechuga, Tomate, Pimiento, Tortilla y Pollo o Lomo.', alergenos: [] },
+            { id: 7, categoria: 'Camperos', nombre: 'Barrilete', precio: '7,00€', foto: 'imagenes/camperos/barrilete.webp', ingredientes: 'Lechuga, Tomate, Tortilla de Patatas y Bacon.', alergenos: [] },
+            { id: 8, categoria: 'Camperos', nombre: 'Bartolo', precio: '5,50€', foto: 'imagenes/camperos/bartolo.webp', ingredientes: 'Lechuga, Tomate, Tortilla de Patatas y Lomo Adobado.', alergenos: [] },
+            { id: 9, categoria: 'Camperos', nombre: 'Bocata Sur', precio: '8,00€', foto: 'imagenes/camperos/bocata-sur.webp', ingredientes: 'Lechuga, Tomate, Jamón, Pimiento, Huevo, Bacon, Queso y Pollo o Lomo.', alergenos: [] },
+            { id: 10, categoria: 'Camperos', nombre: 'Señorito', precio: '8,00€', foto: 'imagenes/camperos/senorito.webp', ingredientes: 'Lechuga, Tomate, Solomillo de Cerdo y Jamón.', alergenos: [] },
+            { id: 11, categoria: 'Camperos', nombre: 'Roqueto', precio: '7,50€', foto: 'imagenes/camperos/roqueto.webp', ingredientes: 'Lechuga, Tomate, Solomillo de Cerdo y Crema Roquefort.', alergenos: [] },
+            { id: 12, categoria: 'Camperos', nombre: 'Hannibal', precio: '7,00€', foto: 'imagenes/camperos/hannibal.webp', ingredientes: 'Lechuga, Tomate, Pollo Crujiente y Salsa de la Casa.', alergenos: [] },
+            { id: 13, categoria: 'Camperos', nombre: 'Pipido', precio: '8,00€', foto: 'imagenes/camperos/pipido.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 14, categoria: 'Hamburguesas', nombre: 'Simple', precio: '5,50€', foto: 'imagenes/hamburguesas/simple.webp', ingredientes: 'Lechuga, Tomate y Hamburguesa.', alergenos: [] },
+            { id: 15, categoria: 'Hamburguesas', nombre: 'Completa', precio: '6,50€', foto: 'imagenes/hamburguesas/completa.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa, Bacon, Queso y Huevo.', alergenos: [] },
+            { id: 16, categoria: 'Hamburguesas', nombre: 'Hamburguesa Sur', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-sur.webp', ingredientes: 'Lechuga, Tomate, Doble Hamburguesa, Bacon, Huevo y Queso.', alergenos: [] },
+            { id: 17, categoria: 'Hamburguesas', nombre: 'Hamburguesa Roquefort', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-roquefort.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Cebolla Caramelizada y Crema Roquefort.', alergenos: [] },
+            { id: 18, categoria: 'Hamburguesas', nombre: 'Hamburguesa Bellota', precio: '7,50€', foto: 'imagenes/hamburguesas/hamburguesa-bellota.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Jamón Serrano, Pimiento, Huevo y Alioli.', alergenos: [] },
+            { id: 19, categoria: 'Hamburguesas', nombre: 'Hamburguesa Golosa', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-golosa.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Confitura de Pimientos, Queso y Salsa de la Casa.', alergenos: [] },
+            { id: 20, categoria: 'Hamburguesas', nombre: 'Hamburguesa Verona', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-verona.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Doritos, Queso y Salsa Ranchera.', alergenos: [] },
+            { id: 21, categoria: 'Hamburguesas', nombre: 'Hamburguesa Buffalo', precio: '-', foto: 'imagenes/hamburguesas/hamburguesa-buffalo.webp', ingredientes: 'Lechuga, Tomate, Doble de Carne, Queso, Cebolla Frita, Bacon, Salsa Cheddar y Barbacoa.', alergenos: [] },
+            { id: 22, categoria: 'Patatas', nombre: 'Patatas Fritas', precio: '3,00€', foto: 'imagenes/patatas/patatas-fritas.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 23, categoria: 'Patatas', nombre: 'Patatas Rancheras', precio: '6,00€', foto: 'imagenes/patatas/patatas-rancheras.webp', ingredientes: 'Patatas fritas, ternera, bacon y salsa ranchera', alergenos: [] },
+            { id: 24, categoria: 'Patatas', nombre: 'Patatas de la Casa', precio: '6,00€', foto: 'imagenes/patatas/patatas-de-la-casa.webp', ingredientes: 'Patatas deluxe, mozzarella y salsa de la casa', alergenos: [] },
+            { id: 25, categoria: 'Patatas', nombre: 'Patatas Roquefort', precio: '6,00€', foto: 'imagenes/patatas/patatas-roquefort.webp', ingredientes: 'Patatas fritas, bacon y crema roquefort', alergenos: [] },
+            { id: 26, categoria: 'Patatas', nombre: 'Patatas Serranas', precio: '6,00€', foto: 'imagenes/patatas/patatas-serranas.webp', ingredientes: 'Patatas fritas, jamón, pimiento, huevo y alioli', alergenos: [] },
+            { id: 27, categoria: 'Patatas', nombre: 'Patatas Cheddar', precio: '5,50€', foto: 'imagenes/patatas/patatas-cheddar.webp', ingredientes: 'Patatas fritas, bacon y salsa cheddar', alergenos: [] },
+            { id: 28, categoria: 'Patatas', nombre: 'Patatas Kebab', precio: '6,00€', foto: 'imagenes/patatas/patatas-kebab.webp', ingredientes: 'Patatas fritas, carne kebab y salsa kebab', alergenos: [] },
+            { id: 29, categoria: 'Compartir', nombre: 'Cheddar Bites', precio: '7,00€', foto: 'imagenes/compartir/cheddar-bites.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 30, categoria: 'Compartir', nombre: 'Solomillito Kentucky', precio: '7,00€', foto: 'imagenes/compartir/solomillito-kentucky.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 31, categoria: 'Compartir', nombre: 'Nachos', precio: '7,00€', foto: 'imagenes/compartir/nachos.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 32, categoria: 'Compartir', nombre: 'Alitas de Pollo', precio: '7,00€', foto: 'imagenes/compartir/alitas-de-pollo.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 33, categoria: 'Pizzas', nombre: 'Margarita', precio: '6,50€', foto: 'imagenes/pizzas/margarita.webp', ingredientes: 'Tomate, mozzarella y orégano', alergenos: [] },
+            { id: 34, categoria: 'Pizzas', nombre: 'York', precio: '7,50€', foto: 'imagenes/pizzas/york.webp', ingredientes: 'Tomate, mozzarella, york y orégano', alergenos: [] },
+            { id: 35, categoria: 'Pizzas', nombre: 'Cuatro Quesos', precio: '8,00€', foto: 'imagenes/pizzas/cuatro-quesos.webp', ingredientes: 'Tomate, mozzarella, 4 quesos y orégano', alergenos: [] },
+            { id: 36, categoria: 'Pizzas', nombre: 'Atún', precio: '8,00€', foto: 'imagenes/pizzas/atun.webp', ingredientes: 'Tomate, mozzarella, atún y orégano', alergenos: [] },
+            { id: 37, categoria: 'Pizzas', nombre: 'Barbacoa', precio: '8,00€', foto: 'imagenes/pizzas/barbacoa.webp', ingredientes: 'Tomate, mozzarella, bacon, cebolla, carne, barbacoa y orégano', alergenos: [] },
+            { id: 38, categoria: 'Pizzas', nombre: 'Marinera', precio: '9,00€', foto: 'imagenes/pizzas/marinera.webp', ingredientes: 'Tomate, mozzarella, frutos del mar y orégano', alergenos: [] },
+            { id: 39, categoria: 'Pizzas', nombre: 'Gaucha', precio: '8,00€', foto: 'imagenes/pizzas/gaucha.webp', ingredientes: 'Tomate, mozzarella, ternera, bacon, gaucha y orégano', alergenos: [] },
+            { id: 40, categoria: 'Pizzas', nombre: 'Cordobesa', precio: '9,00€', foto: 'imagenes/pizzas/cordobesa.webp', ingredientes: 'Tomate, mozzarella, huevo, jamón, pimiento, tomate natural y orégano', alergenos: [] },
+            { id: 41, categoria: 'Pizzas', nombre: 'Kebab', precio: '8,00€', foto: 'imagenes/pizzas/kebab.webp', ingredientes: 'Tomate, mozzarella, carne kebab, salsa kebab y orégano', alergenos: [] },
+            { id: 42, categoria: 'Pizzas', nombre: 'La Meca', precio: '9,00€', foto: 'imagenes/pizzas/la-meca.webp', ingredientes: 'Philadelphia, mozzarella, bacon, queso de cabra, dátiles, pollo y orégano', alergenos: [] },
+            { id: 43, categoria: 'Pizzas', nombre: 'Caprichosa', precio: '8,00€', foto: 'imagenes/pizzas/caprichosa.webp', ingredientes: 'Tomate, mozzarella, champiñones, york y orégano', alergenos: [] },
+            { id: 44, categoria: 'Pizzas', nombre: 'Misteriosa', precio: '8,00€', foto: 'imagenes/pizzas/misteriosa.webp', ingredientes: 'Philadelphia, mozzarella, york, champiñones, bacon, cebolla y orégano', alergenos: [] },
+            { id: 45, categoria: 'Pizzas', nombre: 'Cargadita', precio: '8,00€', foto: 'imagenes/pizzas/cargadita.webp', ingredientes: 'Tomate, mozzarella, salchichas, bacon, pollo, york, cheddar y orégano', alergenos: [] },
+            { id: 46, categoria: 'Pizzas', nombre: 'Pizza Sur', precio: '9,00€', foto: 'imagenes/pizzas/pizza-sur.webp', ingredientes: 'Philadelphia, mozzarella, york, pollo, bacon, cebolla, cheddar y orégano', alergenos: [] },
+            { id: 47, categoria: 'Los peques', nombre: 'Nuggets y Patatas', precio: '6,00€', foto: 'imagenes/peques/nuggets-y-patatas.webp', ingredientes: 'Plato con nuggets y patatas', alergenos: [] },
+            { id: 48, categoria: 'Los peques', nombre: 'Mini Sur', precio: '6,50€', foto: 'imagenes/peques/mini-sur.webp', ingredientes: 'Incluye: Nuggets, hamburguesa o perrito + patatas, bebida, postre y dulce', alergenos: [] }
+        ];
 
-    
 
-function renderCategorias() {
-const container = document.getElementById('contenedor-categorias-principal');
-container.innerHTML = categorias.map(cat => `
+
+        function renderCategorias() {
+            const container = document.getElementById('contenedor-categorias-principal');
+            container.innerHTML = categorias.map(cat => `
     <div onclick="filtrar('${cat.id}')" class="relative h-44 rounded-3xl overflow-hidden shadow-2xl border border-white/20 active:scale-95 transition-transform cursor-pointer">
         <img src="${cat.foto}" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-70 bg-stone-700" alt="${cat.id}">
         <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -226,37 +237,37 @@ container.innerHTML = categorias.map(cat => `
         </div>
     </div>
 `).join('');
-}
+        }
 
- function filtrar(cat) {
-const filtrados = platos.filter(p => p.categoria === cat);
+        function filtrar(cat) {
+            const filtrados = platos.filter(p => p.categoria === cat);
 
-document.getElementById('vista-categorias').classList.add('hidden');
-document.getElementById('vista-platos').classList.remove('hidden');
-document.getElementById('btn-atras').classList.remove('hidden');
-document.getElementById('header-title').classList.add('hidden');
-document.getElementById('titulo-actual').innerText = cat;
+            document.getElementById('vista-categorias').classList.add('hidden');
+            document.getElementById('vista-platos').classList.remove('hidden');
+            document.getElementById('btn-atras').classList.remove('hidden');
+            document.getElementById('header-title').classList.add('hidden');
+            document.getElementById('titulo-actual').innerText = cat;
 
-const notaExt = document.getElementById('nota-categoria');
-if (cat === 'Hamburguesas') {
-    notaExt.innerHTML = '✨ Todas las hamburguesas van en <strong>Pan Brioche</strong>. <br> Añade patatas por <strong>+2€</strong>.';
-    notaExt.classList.remove('hidden');
-} else if (cat === 'Compartir') {
-    notaExt.innerHTML = '✨ Todo va acompañado de patatas fritas, a excepción de los Nachos.';
-    notaExt.classList.remove('hidden');
-} else {
-    notaExt.classList.add('hidden');
-    notaExt.innerHTML = '';
-}
+            const notaExt = document.getElementById('nota-categoria');
+            if (cat === 'Hamburguesas') {
+                notaExt.innerHTML = '✨ Todas las hamburguesas van en <strong>Pan Brioche</strong>. <br> Añade patatas por <strong>+2€</strong>.';
+                notaExt.classList.remove('hidden');
+            } else if (cat === 'Compartir') {
+                notaExt.innerHTML = '✨ Todo va acompañado de patatas fritas, a excepción de los Nachos.';
+                notaExt.classList.remove('hidden');
+            } else {
+                notaExt.classList.add('hidden');
+                notaExt.innerHTML = '';
+            }
 
-const grid = document.getElementById('grid-platos');
-grid.innerHTML = '';
+            const grid = document.getElementById('grid-platos');
+            grid.innerHTML = '';
 
-if (filtrados.length === 0) {
-    grid.innerHTML = '<p class="col-span-2 text-center text-sur-dark/80 py-12 italic">¡Próximamente!</p>';
-} else {
-    filtrados.forEach(plato => {
-        grid.innerHTML += `
+            if (filtrados.length === 0) {
+                grid.innerHTML = '<p class="col-span-2 text-center text-sur-dark/80 py-12 italic">¡Próximamente!</p>';
+            } else {
+                filtrados.forEach(plato => {
+                    grid.innerHTML += `
             <div onclick="openDetail(${plato.id})" class="bg-sur-text-white rounded-[2rem] shadow-xl overflow-hidden active:scale-95 transition-transform duration-200 text-center border-b-4 border-sur-orange/10 hover:border-sur-orange/20">
                 <img src="${plato.foto}" loading="lazy" class="w-full h-40 object-cover bg-stone-100">
                 <div class="p-5">
@@ -264,67 +275,67 @@ if (filtrados.length === 0) {
                     <p class="text-sur-orange font-bold text-xl mt-2">${plato.precio}</p>
                 </div>
             </div>`;
-    });
-}
-history.pushState({ view: 'platos' }, "");
-window.scrollTo(0, 0);
-}
-function mostrarCategorias() {
-document.getElementById('vista-categorias').classList.remove('hidden');
-document.getElementById('vista-platos').classList.add('hidden');
-document.getElementById('btn-atras').classList.add('hidden');
-document.getElementById('header-title').classList.remove('hidden');
-window.scrollTo(0, 0);
-}
+                });
+            }
+            history.pushState({ view: 'platos' }, "");
+            window.scrollTo(0, 0);
+        }
+        function mostrarCategorias() {
+            document.getElementById('vista-categorias').classList.remove('hidden');
+            document.getElementById('vista-platos').classList.add('hidden');
+            document.getElementById('btn-atras').classList.add('hidden');
+            document.getElementById('header-title').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
 
-function openDetail(id) {
-const p = platos.find(x => x.id === id);
-if (!p) return;
-document.getElementById('detail-img').src = p.foto;
-document.getElementById('detail-title').innerText = p.nombre;
-document.getElementById('detail-price').innerText = p.precio;
+        function openDetail(id) {
+            const p = platos.find(x => x.id === id);
+            if (!p) return;
+            document.getElementById('detail-img').src = p.foto;
+            document.getElementById('detail-title').innerText = p.nombre;
+            document.getElementById('detail-price').innerText = p.precio;
 
-const divIngredientes = document.getElementById('detail-ingredients');
-const divAlergenos = document.getElementById('detail-alergenos');
+            const divIngredientes = document.getElementById('detail-ingredients');
+            const divAlergenos = document.getElementById('detail-alergenos');
 
-divIngredientes.innerText = p.ingredientes;
-divAlergenos.innerHTML = p.alergenos ? p.alergenos.map(a => `
+            divIngredientes.innerText = p.ingredientes;
+            divAlergenos.innerHTML = p.alergenos ? p.alergenos.map(a => `
     <div class="w-14 h-14 rounded-full border border-stone-100 flex items-center justify-center bg-stone-50 text-2xl shadow-inner">
         ${a}
     </div>`).join('') : '';
 
-document.getElementById('dish-detail').classList.remove('translate-y-full');
-document.body.style.overflow = 'hidden';
-history.pushState({ view: 'detalle' }, "");
-}
+            document.getElementById('dish-detail').classList.remove('translate-y-full');
+            document.body.style.overflow = 'hidden';
+            history.pushState({ view: 'detalle' }, "");
+        }
 
-    function closeDetail() {
-        document.getElementById('dish-detail').classList.add('translate-y-full');
-        document.body.style.overflow = 'auto';
-    }
+        function closeDetail() {
+            document.getElementById('dish-detail').classList.add('translate-y-full');
+            document.body.style.overflow = 'auto';
+        }
 
-    window.onload = renderCategorias;
+        window.onload = renderCategorias;
 
 
-    window.onpopstate = function(event) {
-const detailOpen = !document.getElementById('dish-detail').classList.contains('translate-y-full');
-const platosOpen = !document.getElementById('vista-platos').classList.contains('hidden');
+        window.onpopstate = function (event) {
+            const detailOpen = !document.getElementById('dish-detail').classList.contains('translate-y-full');
+            const platosOpen = !document.getElementById('vista-platos').classList.contains('hidden');
 
-if (detailOpen) {
-    // Si el detalle está abierto, lo cerramos
-    document.getElementById('dish-detail').classList.add('translate-y-full');
-    document.body.style.overflow = 'auto';
-} 
-else if (platosOpen) {
-    // Si estamos viendo la lista de platos, volvemos a categorías
-    document.getElementById('vista-categorias').classList.remove('hidden');
-    document.getElementById('vista-platos').classList.add('hidden');
-    document.getElementById('btn-atras').classList.add('hidden');
-    document.getElementById('header-title').classList.remove('hidden');
-}
-};
+            if (detailOpen) {
+                // Si el detalle está abierto, lo cerramos
+                document.getElementById('dish-detail').classList.add('translate-y-full');
+                document.body.style.overflow = 'auto';
+            }
+            else if (platosOpen) {
+                // Si estamos viendo la lista de platos, volvemos a categorías
+                document.getElementById('vista-categorias').classList.remove('hidden');
+                document.getElementById('vista-platos').classList.add('hidden');
+                document.getElementById('btn-atras').classList.add('hidden');
+                document.getElementById('header-title').classList.remove('hidden');
+            }
+        };
 
-</script>
+    </script>
 </body>
 
 </html>
