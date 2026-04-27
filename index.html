@@ -225,15 +225,17 @@
             { id: 48, categoria: 'Los peques', nombre: 'Mini Sur', precio: '6,50€', foto: 'imagenes/peques/mini-sur.webp', ingredientes: 'Incluye: Nuggets, hamburguesa o perrito + patatas, bebida, postre y dulce', alergenos: [] }
         ];
 
-        // Asignar fotos por defecto a los platos que no tienen imagen
+        // Asignar fotos a todos los elementos de ciertas categorías, y por defecto a las Pizzas sin imagen
         platos.forEach(plato => {
-            if (!plato.foto || plato.foto.trim() === '') {
-                if (plato.categoria === 'Camperos') {
-                    plato.foto = 'imagenes/camperos/calentitos.webp';
-                } else if (plato.categoria === 'Pizzas') {
+            if (plato.categoria === 'Camperos') {
+                plato.foto = 'imagenes/camperos/calentitos.webp';
+            } else if (plato.categoria === 'Hamburguesas') {
+                plato.foto = 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.17.15.webp';
+            } else if (plato.categoria === 'Patatas') {
+                plato.foto = 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.24.20.webp';
+            } else if (!plato.foto || plato.foto.trim() === '') {
+                if (plato.categoria === 'Pizzas') {
                     plato.foto = 'imagenes-png/cordobesa.webp';
-                } else if (plato.categoria === 'Hamburguesas') {
-                    plato.foto = 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.17.15.webp';
                 }
             }
         });
