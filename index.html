@@ -69,16 +69,17 @@
 
 <body class="text-gray-900">
 
-    <header class="bg-white text-sur-orange h-24 w-full sticky top-0 z-50 flex items-center relative mx-0 px-0">
+    <header class="bg-white w-full sticky top-0 z-50 shadow-sm">
+        <div class="max-w-md mx-auto relative flex items-center justify-center min-h-[5rem]">
+            <div id="header-title" class="w-full flex justify-center p-2">
+                <img id="header-logo" src="header-bocateria.png" class="w-full h-auto object-contain max-h-32" alt="Bocatería Sur 2">
+            </div>
 
-        <div id="header-title" class="absolute inset-0 flex justify-center items-center">
-            <img id="header-logo" src="header-bocateria.png" class="h-16 w-auto" style="display:block;">
+            <button id="btn-atras" onclick="history.back()"
+                class="hidden absolute left-4 top-1/2 -translate-y-1/2 text-xs bg-white/90 px-4 py-2 rounded-full border border-sur-orange text-sur-orange font-bold z-10 shadow-md backdrop-blur-sm hover:bg-sur-orange hover:text-sur-text-white transition-all">
+                ← VOLVER
+            </button>
         </div>
-
-        <button id="btn-atras" onclick="history.back()"
-            class="hidden absolute left-4 text-xs bg-sur-text-white/80 px-4 py-2 rounded-full border border-sur-orange text-sur-orange font-bold z-10 hover:bg-sur-orange hover:text-sur-text-white transition-colors">
-            ← VOLVER
-        </button>
     </header>
 
     <main class="max-w-md mx-auto p-4">
