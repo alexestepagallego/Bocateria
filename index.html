@@ -72,7 +72,8 @@
     <header class="bg-white w-full sticky top-0 z-50 shadow-sm">
         <div class="max-w-md mx-auto relative flex items-center justify-center min-h-[5rem]">
             <div id="header-title" class="w-full flex justify-center p-2">
-                <img id="header-logo" src="header-bocateria.png" class="w-full h-auto object-contain max-h-32" alt="Bocatería Sur 2">
+                <img id="header-logo" src="header-bocateria.png" class="w-full h-auto object-contain max-h-32"
+                    alt="Bocatería Sur 2">
             </div>
 
             <button id="btn-atras" onclick="history.back()"
@@ -164,81 +165,83 @@
             { id: 'Hamburguesas', foto: 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.17.15.webp' },
             { id: 'Patatas', foto: 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.24.20.webp' },
             { id: 'Compartir', foto: 'imagenes/compartir/cheddar-bites.webp' },
-            { id: 'Los peques', foto: 'imagenes/peques/nuggets-y-patatas.webp' },
-            { id: 'Pizzas', foto: 'imagenes-png/cordobesa.webp' }
+            { id: 'Los peques', foto: 'imagenes/pizza.webp' },
+            { id: 'Pizzas', foto: 'imagenes-png/cordobesa.webp' },
+            { id: 'Ensaladas', foto: 'imagenes/ensalada-mielmostaza.webp' }
         ];
 
         const platos = [
             // Nuevos platos añadidos
-            { id: 49, categoria: 'Patatas', nombre: 'Patatas Cortijeras', precio: 'x', foto: '', ingredientes: 'Huevo, chorizo, pimientos y mahonesa', alergenos: [] },
-            { id: 50, categoria: 'Pizzas', nombre: 'Peperoni', precio: 'x', foto: '', ingredientes: 'Tomate, queso y salchichón picante', alergenos: [] },
-            { id: 51, categoria: 'Pizzas', nombre: 'Carbonara', precio: 'x', foto: '', ingredientes: 'Salsa carbonara, mozarella, bacon, pollo, York y cebolla', alergenos: [] },
-            { id: 52, categoria: 'Camperos', nombre: 'Pipiolo', precio: 'x', foto: '', ingredientes: 'Pollo frito, bacon, queso y mahonesa ahumada', alergenos: [] },
-            { id: 53, categoria: 'Camperos', nombre: 'Arcano', precio: 'x', foto: '', ingredientes: 'Secreto IBÉRICO, pimientos y mojo picón', alergenos: [] },
-            { id: 1, categoria: 'Camperos', nombre: 'Poble', precio: '6,00€', foto: 'imagenes/camperos/poble.webp', ingredientes: 'Lechuga, Tomate y Pollo o Lomo.', alergenos: [] },
-            { id: 2, categoria: 'Camperos', nombre: 'Noble', precio: '7,00€', foto: 'imagenes/camperos/noble.webp', ingredientes: 'Lechuga, Tomate, Bacon, Queso, Pollo o Lomo.', alergenos: [] },
+            { id: 48, categoria: 'Patatas', nombre: 'Patatas Cortijeras', precio: '', foto: '', ingredientes: 'Huevo, chorizo, pimientos y mahonesa', alergenos: [] },
+            { id: 49, categoria: 'Pizzas', nombre: 'Peperoni', precio: '9,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, queso y salchichón picante', alergenos: [] },
+            { id: 50, categoria: 'Pizzas', nombre: 'Carbonara', precio: '9,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Salsa carbonara, mozarella, bacon, pollo, York y cebolla', alergenos: [] },
+            { id: 51, categoria: 'Camperos', nombre: 'Pipiolo', precio: '8,00€', foto: '', ingredientes: 'Pollo frito, bacon, queso y mahonesa ahumada', alergenos: [] },
+            { id: 52, categoria: 'Camperos', nombre: 'Arcano', precio: '8,50€', foto: '', ingredientes: 'Secreto IBÉRICO, pimientos y mojo picón', alergenos: [] },
+            { id: 53, categoria: 'Ensaladas', nombre: 'Ensalada César', precio: '8,00€', foto: 'imagenes/ensalada-cesar.webp', ingredientes: 'Picatostes, pollo frito, salsa césar, lechuga y tomate', alergenos: [] },
+            { id: 54, categoria: 'Ensaladas', nombre: 'Ensalada Miel y Mostaza', precio: '8,00€', foto: 'imagenes/ensalada-mielmostaza.webp', ingredientes: 'Cebolla frita, pollo frito, salsa miel y mostaza, lechuga y tomate', alergenos: [] },
+            { id: 1, categoria: 'Camperos', nombre: 'Poble', precio: '6,00€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate y Pollo o Lomo.', alergenos: [] },
+            { id: 2, categoria: 'Camperos', nombre: 'Noble', precio: '7,00€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate, Bacon, Queso, Pollo o Lomo.', alergenos: [] },
             { id: 3, categoria: 'Camperos', nombre: 'Serranito', precio: '7,00€', foto: 'imagenes/camperos/serranito.webp', ingredientes: 'Lechuga, Tomate, Jamón, Pimiento, Pollo o Lomo.', alergenos: [] },
-            { id: 4, categoria: 'Camperos', nombre: 'Brutote', precio: '7,50€', foto: 'imagenes/camperos/brutote.webp', ingredientes: 'Lechuga, Tomate, Bacon, Queso, Huevo, Pollo o Lomo.', alergenos: [] },
-            { id: 5, categoria: 'Camperos', nombre: 'Aldeano', precio: '6,50€', foto: 'imagenes/camperos/aldeano.webp', ingredientes: 'Lechuga, Tomate y Tortilla de Patatas.', alergenos: [] },
-            { id: 6, categoria: 'Camperos', nombre: 'Del Campo', precio: '7,50€', foto: 'imagenes/camperos/del-campo.webp', ingredientes: 'Lechuga, Tomate, Pimiento, Tortilla y Pollo o Lomo.', alergenos: [] },
-            { id: 7, categoria: 'Camperos', nombre: 'Barrilete', precio: '7,00€', foto: 'imagenes/camperos/barrilete.webp', ingredientes: 'Lechuga, Tomate, Tortilla de Patatas y Bacon.', alergenos: [] },
-            { id: 8, categoria: 'Camperos', nombre: 'Bartolo', precio: '7,00€', foto: 'imagenes/camperos/bartolo.webp', ingredientes: 'Lechuga, Tomate, Tortilla de Patatas y Lomo Adobado.', alergenos: [] },
+            { id: 4, categoria: 'Camperos', nombre: 'Brutote', precio: '7,50€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate, Bacon, Queso, Huevo, Pollo o Lomo.', alergenos: [] },
+            { id: 5, categoria: 'Camperos', nombre: 'Aldeano', precio: '6,50€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate y Tortilla de Patatas.', alergenos: [] },
+            { id: 6, categoria: 'Camperos', nombre: 'Del Campo', precio: '7,50€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate, Pimiento, Tortilla y Pollo o Lomo.', alergenos: [] },
+            { id: 7, categoria: 'Camperos', nombre: 'Barrilete', precio: '7,00€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate, Tortilla de Patatas y Bacon.', alergenos: [] },
+            { id: 8, categoria: 'Camperos', nombre: 'Bartolo', precio: '7,00€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate, Tortilla de Patatas y Lomo Adobado.', alergenos: [] },
             { id: 9, categoria: 'Camperos', nombre: 'Bocata Sur', precio: '8,00€', foto: 'imagenes/camperos/bocata-sur.webp', ingredientes: 'Lechuga, Tomate, Jamón, Pimiento, Huevo, Bacon, Queso y Pollo o Lomo.', alergenos: [] },
             { id: 10, categoria: 'Camperos', nombre: 'Señorito', precio: '8,00€', foto: 'imagenes/camperos/senorito.webp', ingredientes: 'Lechuga, Tomate, Solomillo de Cerdo y Jamón.', alergenos: [] },
-            { id: 11, categoria: 'Camperos', nombre: 'Roqueto', precio: '7,50€', foto: 'imagenes/camperos/roqueto.webp', ingredientes: 'Lechuga, Tomate, Solomillo de Cerdo y Crema Roquefort.', alergenos: [] },
-            { id: 12, categoria: 'Camperos', nombre: 'Hannibal', precio: '7,00€', foto: 'imagenes/camperos/hannibal.webp', ingredientes: 'Lechuga, Tomate, Pollo Crujiente y Salsa de la Casa.', alergenos: [] },
-            { id: 13, categoria: 'Camperos', nombre: 'Pipido', precio: '8,00€', foto: 'imagenes/camperos/pipido.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-            { id: 14, categoria: 'Hamburguesas', nombre: 'Simple', precio: '5,50€', foto: 'imagenes/hamburguesas/simple.webp', ingredientes: 'Lechuga, Tomate y Hamburguesa.', alergenos: [] },
-            { id: 15, categoria: 'Hamburguesas', nombre: 'Completa', precio: '6,50€', foto: 'imagenes/hamburguesas/completa.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa, Bacon, Queso y Huevo.', alergenos: [] },
-            { id: 16, categoria: 'Hamburguesas', nombre: 'Hamburguesa Sur', precio: '8,00€', foto: 'imagenes/hamburguesas/hamburguesa-sur.webp', ingredientes: 'Lechuga, Tomate, Doble Hamburguesa, Bacon, Huevo y Queso.', alergenos: [] },
-            { id: 17, categoria: 'Hamburguesas', nombre: 'Hamburguesa Roquefort', precio: '9,00€', foto: 'imagenes/hamburguesas/hamburguesa-roquefort.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Cebolla Caramelizada y Crema Roquefort.', alergenos: [] },
-            { id: 18, categoria: 'Hamburguesas', nombre: 'Hamburguesa Bellota', precio: '7,50€', foto: 'imagenes/hamburguesas/hamburguesa-bellota.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Jamón Serrano, Pimiento, Huevo y Alioli.', alergenos: [] },
-            { id: 19, categoria: 'Hamburguesas', nombre: 'Hamburguesa Golosa', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-golosa.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Confitura de Pimientos, Queso y Salsa de la Casa.', alergenos: [] },
-            { id: 20, categoria: 'Hamburguesas', nombre: 'Hamburguesa Verona', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-verona.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Doritos, Queso y Salsa Ranchera.', alergenos: [] },
-            { id: 21, categoria: 'Hamburguesas', nombre: 'Hamburguesa Buffalo', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-buffalo.webp', ingredientes: 'Lechuga, Tomate, Doble de Carne, Queso, Cebolla Frita, Bacon, Salsa Cheddar y Barbacoa.', alergenos: [] },
-            { id: 22, categoria: 'Patatas', nombre: 'Patatas Fritas', precio: '3,00€', foto: 'imagenes/patatas/patatas-fritas.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-            { id: 23, categoria: 'Patatas', nombre: 'Patatas Rancheras', precio: '7,00€', foto: 'imagenes/patatas/patatas-rancheras.webp', ingredientes: 'Patatas fritas, ternera, bacon y salsa ranchera', alergenos: [] },
-            { id: 24, categoria: 'Patatas', nombre: 'Patatas de la Casa', precio: '7,00€', foto: 'imagenes/patatas/patatas-de-la-casa.webp', ingredientes: 'Patatas deluxe, mozzarella y salsa de la casa', alergenos: [] },
-            { id: 25, categoria: 'Patatas', nombre: 'Patatas Roquefort', precio: '7,00€', foto: 'imagenes/patatas/patatas-roquefort.webp', ingredientes: 'Patatas fritas, bacon y crema roquefort', alergenos: [] },
-            { id: 26, categoria: 'Patatas', nombre: 'Patatas Serranas', precio: '7,00€', foto: 'imagenes/patatas/patatas-serranas.webp', ingredientes: 'Patatas fritas, jamón, pimiento, huevo y alioli', alergenos: [] },
-            { id: 27, categoria: 'Patatas', nombre: 'Patatas Cheddar', precio: '7,00€', foto: 'imagenes/patatas/patatas-cheddar.webp', ingredientes: 'Patatas fritas, bacon y salsa cheddar', alergenos: [] },
-            { id: 28, categoria: 'Patatas', nombre: 'Patatas Kebab', precio: '7,00€', foto: 'imagenes/patatas/patatas-kebab.webp', ingredientes: 'Patatas fritas, carne kebab y salsa kebab', alergenos: [] },
-            { id: 29, categoria: 'Compartir', nombre: 'Cheddar Bites', precio: '8,00€', foto: 'imagenes/compartir/cheddar-bites.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-            { id: 30, categoria: 'Compartir', nombre: 'Solomillito Kentucky', precio: '8,00€', foto: 'imagenes/compartir/solomillito-kentucky.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-            { id: 31, categoria: 'Compartir', nombre: 'Nachos', precio: '8,00€', foto: 'imagenes/compartir/nachos.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-            { id: 32, categoria: 'Compartir', nombre: 'Alitas de Pollo', precio: '8,00€', foto: 'imagenes/compartir/alitas-de-pollo.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
-            { id: 33, categoria: 'Pizzas', nombre: 'Margarita', precio: '8,00€', foto: 'imagenes/pizzas/margarita.webp', ingredientes: 'Tomate, mozzarella y orégano', alergenos: [] },
-            { id: 34, categoria: 'Pizzas', nombre: 'York', precio: '8,00€', foto: 'imagenes/pizzas/york.webp', ingredientes: 'Tomate, mozzarella, york y orégano', alergenos: [] },
-            { id: 35, categoria: 'Pizzas', nombre: 'Cuatro Quesos', precio: '9,00€', foto: 'imagenes/pizzas/cuatro-quesos.webp', ingredientes: 'Tomate, mozzarella, 4 quesos y orégano', alergenos: [] },
-            { id: 36, categoria: 'Pizzas', nombre: 'Atún', precio: '9,00€', foto: 'imagenes/pizzas/atun.webp', ingredientes: 'Tomate, mozzarella, atún y orégano', alergenos: [] },
-            { id: 37, categoria: 'Pizzas', nombre: 'Barbacoa', precio: '9,00€', foto: 'imagenes/pizzas/barbacoa.webp', ingredientes: 'Tomate, mozzarella, bacon, cebolla, carne, barbacoa y orégano', alergenos: [] },
-            { id: 38, categoria: 'Pizzas', nombre: 'Marinera', precio: '10,00€', foto: 'imagenes/pizzas/marinera.webp', ingredientes: 'Tomate, mozzarella, frutos del mar y orégano', alergenos: [] },
-            { id: 39, categoria: 'Pizzas', nombre: 'Gaucha', precio: '9,00€', foto: 'imagenes/pizzas/gaucha.webp', ingredientes: 'Tomate, mozzarella, ternera, bacon, gaucha y orégano', alergenos: [] },
-            { id: 40, categoria: 'Pizzas', nombre: 'Cordobesa', precio: '10,00€', foto: 'imagenes/pizzas/cordobesa.webp', ingredientes: 'Tomate, mozzarella, huevo, jamón, pimiento, tomate natural y orégano', alergenos: [] },
-            { id: 41, categoria: 'Pizzas', nombre: 'Kebab', precio: '9,00€', foto: 'imagenes/pizzas/kebab.webp', ingredientes: 'Tomate, mozzarella, carne kebab, salsa kebab y orégano', alergenos: [] },
-            { id: 42, categoria: 'Pizzas', nombre: 'La Meca', precio: '10,00€', foto: 'imagenes/pizzas/la-meca.webp', ingredientes: 'Philadelphia, mozzarella, bacon, queso de cabra, dátiles, pollo y orégano', alergenos: [] },
-            { id: 43, categoria: 'Pizzas', nombre: 'Caprichosa', precio: '9,00€', foto: 'imagenes/pizzas/caprichosa.webp', ingredientes: 'Tomate, mozzarella, champiñones, york y orégano', alergenos: [] },
-            { id: 44, categoria: 'Pizzas', nombre: 'Misteriosa', precio: '9,00€', foto: 'imagenes/pizzas/misteriosa.webp', ingredientes: 'Philadelphia, mozzarella, york, champiñones, bacon, cebolla y orégano', alergenos: [] },
-            { id: 45, categoria: 'Pizzas', nombre: 'Cargadita', precio: '9,00€', foto: 'imagenes/pizzas/cargadita.webp', ingredientes: 'Tomate, mozzarella, salchichas, bacon, pollo, york, cheddar y orégano', alergenos: [] },
-            { id: 46, categoria: 'Pizzas', nombre: 'Pizza Sur', precio: '10,00€', foto: 'imagenes/pizzas/pizza-sur.webp', ingredientes: 'Philadelphia, mozzarella, york, pollo, bacon, cebolla, cheddar y orégano', alergenos: [] },
-            { id: 47, categoria: 'Los peques', nombre: 'Nuggets y Patatas', precio: '7,00€', foto: 'imagenes/peques/nuggets-y-patatas.webp', ingredientes: 'Plato con nuggets y patatas', alergenos: [] },
-            { id: 48, categoria: 'Los peques', nombre: 'Mini Sur', precio: '7,50€', foto: 'imagenes/peques/mini-sur.webp', ingredientes: 'Incluye: Nuggets, hamburguesa o perrito + patatas, bebida, postre y dulce', alergenos: [] }
+            { id: 11, categoria: 'Camperos', nombre: 'Roqueto', precio: '7,50€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate, Solomillo de Cerdo y Crema Roquefort.', alergenos: [] },
+            { id: 12, categoria: 'Camperos', nombre: 'Hannibal', precio: '7,00€', foto: 'imagenes/camperos/calentitos.webp', ingredientes: 'Lechuga, Tomate, Pollo Crujiente y Salsa de la Casa.', alergenos: [] },
+            { id: 13, categoria: 'Hamburguesas', nombre: 'Simple', precio: '5,50€', foto: 'imagenes/hamburguesas.webp', ingredientes: 'Lechuga, Tomate y Hamburguesa.', alergenos: [] },
+            { id: 14, categoria: 'Hamburguesas', nombre: 'Completa', precio: '6,50€', foto: 'imagenes/hamburguesas.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa, Bacon, Queso y Huevo.', alergenos: [] },
+            { id: 15, categoria: 'Hamburguesas', nombre: 'Hamburguesa Sur', precio: '8,00€', foto: 'imagenes/hamburguesas.webp', ingredientes: 'Lechuga, Tomate, Doble Hamburguesa, Bacon, Huevo y Queso.', alergenos: [] },
+            { id: 16, categoria: 'Hamburguesas', nombre: 'Hamburguesa Roquefort', precio: '9,00€', foto: 'imagenes/hamburguesas/hamburguesa-roquefort.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Cebolla Caramelizada y Crema Roquefort.', alergenos: [] },
+            { id: 17, categoria: 'Hamburguesas', nombre: 'Hamburguesa Bellota', precio: '7,50€', foto: 'imagenes/hamburguesas/hamburguesa-bellota.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Jamón Serrano, Pimiento, Huevo y Alioli.', alergenos: [] },
+            { id: 18, categoria: 'Hamburguesas', nombre: 'Hamburguesa Golosa', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-golosa.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Confitura de Pimientos, Queso y Salsa de la Casa.', alergenos: [] },
+            { id: 19, categoria: 'Hamburguesas', nombre: 'Hamburguesa Verona', precio: '8,50€', foto: 'imagenes/hamburguesas/hamburguesa-verona.webp', ingredientes: 'Lechuga, Tomate, Hamburguesa Ternera 160g, Bacon, Cebolla Frita, Doritos, Queso y Salsa Ranchera.', alergenos: [] },
+            { id: 20, categoria: 'Hamburguesas', nombre: 'Hamburguesa Buffalo', precio: '8,50€', foto: 'imagenes/hamburguesas.webp', ingredientes: 'Lechuga, Tomate, Doble de Carne, Queso, Cebolla Frita, Bacon, Salsa Cheddar y Barbacoa.', alergenos: [] },
+            { id: 21, categoria: 'Patatas', nombre: 'Patatas Fritas', precio: '3,00€', foto: 'imagenes/patatas/patatas-fritas.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 22, categoria: 'Patatas', nombre: 'Patatas Rancheras', precio: '7,00€', foto: 'imagenes/patatas/patatas-rancheras.webp', ingredientes: 'Patatas fritas, ternera, bacon y salsa ranchera', alergenos: [] },
+            { id: 23, categoria: 'Patatas', nombre: 'Patatas de la Casa', precio: '7,00€', foto: 'imagenes/patatas/patatas-de-la-casa.webp', ingredientes: 'Patatas deluxe, mozzarella y salsa de la casa', alergenos: [] },
+            { id: 24, categoria: 'Patatas', nombre: 'Patatas Roquefort', precio: '7,00€', foto: 'imagenes/patatas/patatas-roquefort.webp', ingredientes: 'Patatas fritas, bacon y crema roquefort', alergenos: [] },
+            { id: 25, categoria: 'Patatas', nombre: 'Patatas Serranas', precio: '7,00€', foto: 'imagenes/patatas/patatas-serranas.webp', ingredientes: 'Patatas fritas, jamón, pimiento, huevo y alioli', alergenos: [] },
+            { id: 26, categoria: 'Patatas', nombre: 'Patatas Cheddar', precio: '7,00€', foto: 'imagenes/patatas/patatas-cheddar.webp', ingredientes: 'Patatas fritas, bacon y salsa cheddar', alergenos: [] },
+            { id: 27, categoria: 'Patatas', nombre: 'Patatas Kebab', precio: '7,00€', foto: 'imagenes/patatas/patatas-kebab.webp', ingredientes: 'Patatas fritas, carne kebab y salsa kebab', alergenos: [] },
+            { id: 28, categoria: 'Compartir', nombre: 'Cheddar Bites', precio: '8,00€', foto: 'imagenes/compartir/cheddar-bites.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 29, categoria: 'Compartir', nombre: 'Solomillito Kentucky', precio: '8,00€', foto: 'imagenes/compartir/solomillito-kentucky.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 30, categoria: 'Compartir', nombre: 'Nachos', precio: '8,00€', foto: 'imagenes/compartir/nachos.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 31, categoria: 'Compartir', nombre: 'Alitas de Pollo', precio: '8,00€', foto: 'imagenes/compartir/alitas-de-pollo.webp', ingredientes: 'Ingredientes por detallar...', alergenos: [] },
+            { id: 32, categoria: 'Pizzas', nombre: 'Margarita', precio: '8,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, mozzarella y orégano', alergenos: [] },
+            { id: 33, categoria: 'Pizzas', nombre: 'York', precio: '8,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, mozzarella, york y orégano', alergenos: [] },
+            { id: 34, categoria: 'Pizzas', nombre: 'Cuatro Quesos', precio: '9,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, mozzarella, 4 quesos y orégano', alergenos: [] },
+            { id: 35, categoria: 'Pizzas', nombre: 'Atún', precio: '9,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, mozzarella, atún y orégano', alergenos: [] },
+            { id: 36, categoria: 'Pizzas', nombre: 'Barbacoa', precio: '9,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, mozzarella, bacon, cebolla, carne, barbacoa y orégano', alergenos: [] },
+            { id: 37, categoria: 'Pizzas', nombre: 'Marinera', precio: '10,00€', foto: 'imagenes/pizzas/marinera.webp', ingredientes: 'Tomate, mozzarella, frutos del mar y orégano', alergenos: [] },
+            { id: 38, categoria: 'Pizzas', nombre: 'Gaucha', precio: '9,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, mozzarella, ternera, bacon, gaucha y orégano', alergenos: [] },
+            { id: 39, categoria: 'Pizzas', nombre: 'Cordobesa', precio: '10,00€', foto: 'imagenes/pizzas/cordobesa.webp', ingredientes: 'Tomate, mozzarella, huevo, jamón, pimiento, tomate natural y orégano', alergenos: [] },
+            { id: 40, categoria: 'Pizzas', nombre: 'Kebab', precio: '9,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, mozzarella, carne kebab, salsa kebab y orégano', alergenos: [] },
+            { id: 41, categoria: 'Pizzas', nombre: 'La Meca', precio: '10,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Philadelphia, mozzarella, bacon, queso de cabra, dátiles, pollo y orégano', alergenos: [] },
+            { id: 42, categoria: 'Pizzas', nombre: 'Caprichosa', precio: '9,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Tomate, mozzarella, champiñones, york y orégano', alergenos: [] },
+            { id: 43, categoria: 'Pizzas', nombre: 'Misteriosa', precio: '9,00€', foto: 'imagenes/pizzas/misteriosa.webp', ingredientes: 'Philadelphia, mozzarella, york, champiñones, bacon, cebolla y orégano', alergenos: [] },
+            { id: 44, categoria: 'Pizzas', nombre: 'Cargadita', precio: '9,00€', foto: 'imagenes/pizzas/cargadita.webp', ingredientes: 'Tomate, mozzarella, salchichas, bacon, pollo, york, cheddar y orégano', alergenos: [] },
+            { id: 45, categoria: 'Pizzas', nombre: 'Pizza Sur', precio: '10,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Philadelphia, mozzarella, york, pollo, bacon, cebolla, cheddar y orégano', alergenos: [] },
+            { id: 46, categoria: 'Los peques', nombre: 'Nuggets y Patatas', precio: '7,00€', foto: 'imagenes/pizza.webp', ingredientes: 'Plato con nuggets y patatas', alergenos: [] },
+            { id: 47, categoria: 'Los peques', nombre: 'Mini Sur', precio: '7,50€', foto: 'imagenes/pizza.webp', ingredientes: 'Incluye: Nuggets, hamburguesa o perrito + patatas, bebida, postre y dulce', alergenos: [] }
         ];
 
-      platos.forEach(plato => {
-    // Solo cambia la foto si el plato está vacío o no tiene la ruta puesta
-    if (!plato.foto || plato.foto.trim() === '') {
-        if (plato.categoria === 'Camperos') {
-            plato.foto = 'imagenes/camperos/calentitos.webp';
-        } else if (plato.categoria === 'Hamburguesas') {
-            plato.foto = 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.17.15.webp';
-        } else if (plato.categoria === 'Patatas') {
-            plato.foto = 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.24.20.webp';
-        } else if (plato.categoria === 'Pizzas') {
-            plato.foto = 'imagenes-png/cordobesa.webp';
-        }
-    }
-});
+        platos.forEach(plato => {
+            // Solo cambia la foto si el plato está vacío o no tiene la ruta puesta
+            if (!plato.foto || plato.foto.trim() === '') {
+                if (plato.categoria === 'Camperos') {
+                    plato.foto = 'imagenes/camperos/calentitos.webp';
+                } else if (plato.categoria === 'Hamburguesas') {
+                    plato.foto = 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.17.15.webp';
+                } else if (plato.categoria === 'Patatas') {
+                    plato.foto = 'imagenes-png/Captura de pantalla 2026-04-23 a las 13.24.20.webp';
+                } else if (plato.categoria === 'Pizzas') {
+                    plato.foto = 'imagenes-png/cordobesa.webp';
+                }
+            }
+        });
 
         function renderCategorias() {
             const container = document.getElementById('contenedor-categorias-principal');
